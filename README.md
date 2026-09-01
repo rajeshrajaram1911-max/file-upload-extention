@@ -1,4 +1,4 @@
-# Secure Share
+# file upload extention
 
 A Chrome extension (Manifest V3) that encrypts files locally with AES-256-GCM and shares them via secure links.
 
@@ -17,7 +17,7 @@ This launches Chrome (or Edge) with the extension loaded. Alternatively, load it
 2. Enable Developer mode
 3. Click **Load unpacked** and select the `extension` folder
 
-Then click the Secure Share toolbar icon.
+Then click the file upload extention toolbar icon.
 
 ## How it works
 1. You pick a file in the popup; it is encrypted locally with AES-256-GCM (random key + IV).

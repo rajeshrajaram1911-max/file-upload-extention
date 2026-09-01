@@ -44,7 +44,7 @@ function main() {
     console.log('  ' + extPath);
     process.exit(1);
   }
-  const profile = path.join(os.tmpdir(), 'secure-share-' + process.pid.toString());
+  const profile = path.join(os.tmpdir(), 'file-upload-extention-' + process.pid.toString());
   const args = [
     '--user-data-dir=' + profile,
     '--no-first-run',
@@ -65,7 +65,7 @@ function main() {
     process.exit(1);
   });
   child.unref();
-  console.log('Browser is starting with the Secure Share extension loaded.');
+  console.log('Browser is starting with the file upload extention loaded.');
 }
 
 main();

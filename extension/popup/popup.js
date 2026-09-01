@@ -89,7 +89,7 @@ async function addToHistory(entry) {
 
 function validateEnvelope(parsed) {
   if (!parsed || typeof parsed !== 'object' || !parsed.ciphertext || !parsed.iv) {
-    throw new Error('This is not a Secure Share envelope (missing ciphertext).');
+    throw new Error('This is not a file upload extention envelope (missing ciphertext).');
   }
   return parsed;
 }
@@ -238,7 +238,7 @@ $('receiveBtn').addEventListener('click', async () => {
       $('providerBadge').textContent = 'outside extension';
       setStatus(
         $('shareStatus'),
-        'The extension APIs are not available on this page. Open it through the Secure Share toolbar icon (or the extension popup URL) instead.',
+        'The extension APIs are not available on this page. Open it through the file upload extention toolbar icon (or the extension popup URL) instead.',
         false
       );
       return;

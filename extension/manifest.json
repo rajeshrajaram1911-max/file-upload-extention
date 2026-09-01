@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Secure Share",
+  "name": "file upload extention",
   "version": "1.1.0",
   "minimum_chrome_version": "102",
   "description": "Encrypt files locally with AES-256-GCM, upload them to a file host, and share via a secure link. The decryption key travels only in the link fragment (never on the server).",
@@ -18,7 +18,7 @@
   },
   "action": {
     "default_popup": "popup/popup.html",
-    "default_title": "Secure Share"
+    "default_title": "file upload extention"
   },
   "options_page": "options/options.html",
   "icons": {
