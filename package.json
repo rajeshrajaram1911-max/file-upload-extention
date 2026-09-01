@@ -1,0 +1,9 @@
+{
+  "name": "secure-share",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Chrome extension that encrypts files locally and shares them via secure links",
+  "scripts": {
+    "start": "node start.js"
+  }
+}

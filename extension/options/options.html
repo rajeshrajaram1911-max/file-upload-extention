@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Share - Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>Secure Share Options</h1>
+
+    <section class="card">
+      <h2>Upload host</h2>
+      <p class="hint">
+        The encrypted envelope (ciphertext only, never the key) is uploaded here.
+        The decryption key stays in the share link fragment, so the host cannot read your file.
+      </p>
+
+      <label for="provider">Provider</label>
+      <select id="provider">
+        <option value="catbox">Catbox (catbox.moe)</option>
+        <option value="tmpfiles">tmpfiles.org</option>
+        <option value="fileio">file.io (auto-expiring)</option>
+        <option value="custom">Custom server / webhook</option>
+      </select>
+
+      <label for="customUrl">Custom upload URL (for the "custom server" option)</label>
+      <input id="customUrl" type="text" autocomplete="off" placeholder="https://example.com/api/upload">
+      <p class="hint">
+        Your endpoint receives a <code>multipart/form-data</code> field named
+        <code>file</code> and should reply with JSON containing a
+        <code>url</code>, <code>link</code>, or <code>data.url</code> field,
+        or with a plain-text URL.
+      </p>
+
+      <div class="actions">
+        <button id="saveBtn" class="primary" type="button">Save</button>
+      </div>
+      <div id="configStatus" class="status"></div>
+    </section>
+
+    <section class="card">
+      <h2>About security</h2>
+      <p class="hint">
+        Files are encrypted with AES-256-GCM entirely in your browser before upload.
+        The random key is appended to the share link as <code>#key=...</code>.
+        Anyone with the full link (URL + fragment) can decrypt; the host only ever sees ciphertext.
+      </p>
+      <p class="hint">
+        History is stored in the extension's local storage and can be cleared with
+        the <code>Clear share history</code> button.
+      </p>
+      <div class="actions">
+        <button id="clearHistoryBtn" type="button">Clear share history</button>
+      </div>
+      <div id="clearStatus" class="status"></div>
+    </section>
+  </main>
+
+  <script src="options.js"></script>
+</body>
+</html>

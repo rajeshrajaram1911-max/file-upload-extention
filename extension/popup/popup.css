@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 380px;
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: #1f2328;
+  background: #ffffff;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: #1a73e8;
+  color: #ffffff;
+}
+
+header h1 {
+  font-size: 15px;
+  margin: 0;
+}
+
+.badge {
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #e3e6ea;
+}
+
+.tab {
+  flex: 1;
+  padding: 9px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 13px;
+  color: #57606a;
+}
+
+.tab.active {
+  border-bottom-color: #1a73e8;
+  color: #1a73e8;
+  font-weight: 600;
+}
+
+.panel {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panel.hidden {
+  display: none;
+}
+
+.hint {
+  font-size: 12px;
+  color: #57606a;
+  background: #f6f8fa;
+  border: 1px solid #e3e6ea;
+  border-radius: 6px;
+  padding: 8px;
+  line-height: 1.4;
+}
+
+label {
+  font-size: 12px;
+  color: #57606a;
+  margin-top: 4px;
+}
+
+input[type="text"],
+input[type="file"],
+textarea,
+select {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #ffffff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button.primary {
+  background: #1a73e8;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 9px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+button.primary:hover {
+  background: #1665c0;
+}
+
+button.secondary {
+  background: #ffffff;
+  color: #1f2328;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 7px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  font-size: 12px;
+  min-height: 16px;
+  padding: 4px 2px;
+}
+
+.status.ok {
+  color: #1a7f37;
+}
+
+.status.error {
+  color: #d1242f;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid #e3e6ea;
+  margin-top: 6px;
+  padding-top: 10px;
+}
+
+.result.hidden {
+  display: none;
+}
+
+.history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.history li {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border: 1px solid #e3e6ea;
+  border-radius: 6px;
+  padding: 7px 8px;
+  margin-bottom: 6px;
+  background: #f6f8fa;
+}
+
+.history li button {
+  align-self: flex-start;
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.history-meta {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.history-url {
+  font-size: 11px;
+  color: #57606a;
+  word-break: break-all;
+  font-family: Consolas, monospace;
+}
+
+footer {
+  border-top: 1px solid #e3e6ea;
+  padding: 8px 14px;
+}
+
+footer button {
+  background: transparent;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Secure Share",
+  "version": "1.1.0",
+  "minimum_chrome_version": "102",
+  "description": "Encrypt files locally with AES-256-GCM, upload them to a file host, and share via a secure link. The decryption key travels only in the link fragment (never on the server).",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://catbox.moe/*",
+    "https://files.catbox.moe/*",
+    "https://tmpfiles.org/*",
+    "https://file.io/*",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Secure Share"
+  },
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

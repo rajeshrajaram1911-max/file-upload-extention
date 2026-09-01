@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Share</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Secure Share</h1>
+    <span id="providerBadge" class="badge">…</span>
+  </header>
+
+  <nav class="tabs">
+    <button id="tabShare" class="tab active" type="button">Share</button>
+    <button id="tabReceive" class="tab" type="button">Receive</button>
+  </nav>
+
+  <section id="panelShare" class="panel">
+    <label for="fileInput">File to encrypt and share</label>
+    <input id="fileInput" type="file">
+
+    <div id="shareHint" class="hint">
+      The file is encrypted with AES-256-GCM on this device. Only the ciphertext is uploaded;
+      the key is embedded in the share link and never leaves your browser.
+    </div>
+
+    <button id="shareBtn" class="primary" type="button">Encrypt &amp; Get Share Link</button>
+    <div id="shareStatus" class="status"></div>
+
+    <div id="resultBox" class="result hidden">
+      <label for="shareLinkOut">Share link (contains the decryption key)</label>
+      <textarea id="shareLinkOut" rows="3" readonly></textarea>
+      <button id="copyLinkBtn" class="secondary" type="button">Copy link</button>
+    </div>
+
+    <div id="historyBlock" class="hidden">
+      <label>Recent shares</label>
+      <ul id="historyList" class="history"></ul>
+    </div>
+  </section>
+
+  <section id="panelReceive" class="panel hidden">
+    <label for="linkInput">Secure link (or pasted envelope JSON)</label>
+    <textarea id="linkInput" rows="3" placeholder="Paste the share link: https://host/... #key=..."></textarea>
+
+    <label for="envelopeFile">Or load an encrypted envelope file (.enc)</label>
+    <input id="envelopeFile" type="file" accept=".enc,.json,application/json">
+
+    <label for="keyInput">Key (auto-filled from the link)</label>
+    <input id="keyInput" type="text" placeholder="Base64url AES key, or leave empty if in the link">
+    <div id="keyAutoBadge" class="hint hidden"></div>
+
+    <button id="receiveBtn" class="primary" type="button">Decrypt &amp; Download</button>
+    <div id="receiveStatus" class="status"></div>
+  </section>
+
+  <footer>
+    <button id="openOptions" type="button">Options</button>
+  </footer>
+
+  <script src="../lib/crypto.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
